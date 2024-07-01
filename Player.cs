@@ -4,7 +4,13 @@ using System.Text;
 
 namespace TicTacToe
 {
-    internal class Player
+    public class Player
     {
+        public char Mark { get; private set; }
+
+        public Player(char mark)
+        {
+            this.Mark = mark;
+        }
     }
 }
