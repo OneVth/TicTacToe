@@ -1,0 +1,14 @@
+G:\GitHub\TicTacToe\bin\Debug\netcoreapp3.1\TicTacToe.exe
+G:\GitHub\TicTacToe\bin\Debug\netcoreapp3.1\TicTacToe.deps.json
+G:\GitHub\TicTacToe\bin\Debug\netcoreapp3.1\TicTacToe.runtimeconfig.json
+G:\GitHub\TicTacToe\bin\Debug\netcoreapp3.1\TicTacToe.runtimeconfig.dev.json
+G:\GitHub\TicTacToe\bin\Debug\netcoreapp3.1\TicTacToe.dll
+G:\GitHub\TicTacToe\bin\Debug\netcoreapp3.1\TicTacToe.pdb
+G:\GitHub\TicTacToe\obj\Debug\netcoreapp3.1\TicTacToe.GeneratedMSBuildEditorConfig.editorconfig
+G:\GitHub\TicTacToe\obj\Debug\netcoreapp3.1\TicTacToe.AssemblyInfoInputs.cache
+G:\GitHub\TicTacToe\obj\Debug\netcoreapp3.1\TicTacToe.AssemblyInfo.cs
+G:\GitHub\TicTacToe\obj\Debug\netcoreapp3.1\TicTacToe.csproj.CoreCompileInputs.cache
+G:\GitHub\TicTacToe\obj\Debug\netcoreapp3.1\TicTacToe.sourcelink.json
+G:\GitHub\TicTacToe\obj\Debug\netcoreapp3.1\TicTacToe.dll
+G:\GitHub\TicTacToe\obj\Debug\netcoreapp3.1\TicTacToe.pdb
+G:\GitHub\TicTacToe\obj\Debug\netcoreapp3.1\TicTacToe.genruntimeconfig.cache

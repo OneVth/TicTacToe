@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\C#\\Personal\\TicTacToe\\TicTacToe.csproj": {}
+    "G:\\GitHub\\TicTacToe\\TicTacToe.csproj": {}
   },
   "projects": {
-    "G:\\C#\\Personal\\TicTacToe\\TicTacToe.csproj": {
+    "G:\\GitHub\\TicTacToe\\TicTacToe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\C#\\Personal\\TicTacToe\\TicTacToe.csproj",
+        "projectUniqueName": "G:\\GitHub\\TicTacToe\\TicTacToe.csproj",
         "projectName": "TicTacToe",
-        "projectPath": "G:\\C#\\Personal\\TicTacToe\\TicTacToe.csproj",
+        "projectPath": "G:\\GitHub\\TicTacToe\\TicTacToe.csproj",
         "packagesPath": "C:\\Users\\okayh\\.nuget\\packages\\",
-        "outputPath": "G:\\C#\\Personal\\TicTacToe\\obj\\",
+        "outputPath": "G:\\GitHub\\TicTacToe\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\okayh\\AppData\\Roaming\\NuGet\\NuGet.Config",
