@@ -6,16 +6,20 @@ namespace TicTacToe
 {
     public static  class Board
     {
-        public static char[] gameBoard;
+        public static char[] GameBoard;
 
         static Board()
         {
-            gameBoard = new char[9];
+            GameBoard = new char[9];
 
-            for (int i = 0; i < gameBoard.Length; i++)
+            for (int i = 0; i < GameBoard.Length; i++)
             {
-                gameBoard[i] = ' ';
+                GameBoard[i] = ' ';
             }
         }
+
+        public static void UpdateBoard() { }
+
+        public static void DisplayBoard() { }
     }
 }
