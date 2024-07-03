@@ -13,7 +13,17 @@ namespace TicTacToe
 
         public static void StartGame()
         {
+            Console.WriteLine(IntroText);
 
+            while (true)
+            {
+                Console.Clear();
+                DisplayGameLayout();
+
+                ChoosePosition();
+                CheckWinner();
+
+            }
         }
 
         /// <summary>
@@ -21,19 +31,24 @@ namespace TicTacToe
         /// </summary>
         public static void DisplayGameLayout()
         {
+            char[,] gameBoard = Board.GameBoard;
 
+            Console.WriteLine("");
         }
 
         public static void ChoosePosition()
         {
-
+            throw new NotImplementedException();
         }
 
         public static bool CheckWinner()
         {
-            return false;
+            throw new NotImplementedException();
         }
 
-        public static void ResetGame() { }
+        public static void ResetGame() 
+        {
+            throw new NotImplementedException();
+        }
     }
 }
