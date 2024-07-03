@@ -4,59 +4,36 @@ using System.Text;
 
 namespace TicTacToe
 {
-    public class GameManager
+    public static class GameManager
     {
-        public Player[] Players;
+        public static Player[] Players;
 
-        public readonly string StartMessage =
-            "Start TicTacToe game!";
+        public static readonly string IntroText = "Start TicTacToe game!";
+        public static readonly string EndingText;
 
-        public static GameManager Instance;
-
-        public GameManager()
+        public static void StartGame()
         {
-            if(Instance == null)
-                Instance = this;
+
         }
 
         /// <summary>
         /// Draw Layout on console window
         /// </summary>
-        public void RenderBoard()
+        public static void DisplayGameLayout()
         {
 
         }
 
-        public void DisplayStartMessage() => Console.WriteLine(StartMessage);
-
-        public void CheckWinner()
+        public static void ChoosePosition()
         {
 
         }
 
-        public char GetMark()
+        public static bool CheckWinner()
         {
-            Console.Write("Where to pick? :");
-            if (char.TryParse(Console.ReadKey().KeyChar.ToString(), out char input))
-                return input;
-            else 
-                Console.WriteLine("Input 1 ~ 9");
-
-            return ' ';
+            return false;
         }
 
-        public void DrawBoard(Player targetPlayer, char mark)
-        {
-            
-        }
-
-        public void BeginPlayerTurn()
-        {
-
-        }
-
-        public bool isGameOver() { return false; }
-
-        public void ResetGame() { }
+        public static void ResetGame() { }
     }
 }

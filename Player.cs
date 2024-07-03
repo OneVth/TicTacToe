@@ -14,10 +14,5 @@ namespace TicTacToe
             this.Name = name;
             this.Mark = mark;
         }
-
-        public void ChoosePosition(int position)
-        {
-
-        }
     }
 }

@@ -4,22 +4,21 @@ using System.Text;
 
 namespace TicTacToe
 {
-    public static  class Board
+    public  class Board
     {
-        public static char[] GameBoard;
+        public static char[,] GameBoard { get; private set; }
 
-        static Board()
+        public Board()
         {
-            GameBoard = new char[9];
+            GameBoard = new char[3, 3];
 
-            for (int i = 0; i < GameBoard.Length; i++)
+            for (int i = 0; i < 3; i++)
             {
-                GameBoard[i] = ' ';
+                for (int j = 0; j < 3; j++)
+                {
+                    GameBoard[i, j] = ' ';
+                }
             }
         }
-
-        public static void UpdateBoard() { }
-
-        public static void DisplayBoard() { }
     }
 }
