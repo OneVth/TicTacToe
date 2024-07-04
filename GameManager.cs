@@ -18,7 +18,7 @@ namespace TicTacToe
             while (true)
             {
                 Console.Clear();
-                DisplayGameLayout();
+                DisplayGameLayout(Board.GameBoard);
 
                 ChoosePosition();
                 CheckWinner();
@@ -29,11 +29,15 @@ namespace TicTacToe
         /// <summary>
         /// Draw Layout on console window
         /// </summary>
-        public static void DisplayGameLayout()
+        public static void DisplayGameLayout(char[,] _gameBoard)
         {
-            char[,] gameBoard = Board.GameBoard;
-
-            Console.WriteLine("");
+            Console.WriteLine(" -----------");
+            Console.WriteLine($"| {_gameBoard[0, 0]} | {_gameBoard[0, 1]} | {_gameBoard[0, 2]} |");
+            Console.WriteLine(" -----------");
+            Console.WriteLine($"| {_gameBoard[1, 0]} | {_gameBoard[1, 1]} | {_gameBoard[1, 2]} |");
+            Console.WriteLine(" -----------");
+            Console.WriteLine($"| {_gameBoard[2, 0]} | {_gameBoard[2, 1]} | {_gameBoard[2, 2]} |");
+            Console.WriteLine(" -----------");
         }
 
         public static void ChoosePosition()
