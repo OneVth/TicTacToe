@@ -4,11 +4,11 @@ using System.Text;
 
 namespace TicTacToe
 {
-    public  class Board
+    public static class Board
     {
         public static char[,] GameBoard { get; private set; }
 
-        public Board()
+        static Board()
         {
             GameBoard = new char[3, 3];
 
