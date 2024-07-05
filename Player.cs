@@ -19,7 +19,7 @@ namespace TicTacToe
 
         public void ChangeTurn()
         {
-            
+            throw new NotImplementedException();
         }
     }
 }

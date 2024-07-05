@@ -109,6 +109,9 @@ Press Q to quit or other to restart.";
 
         public static void CheckWinner(char[,] gameBoard, Player player, out Player winner, out bool isGameover)
         {
+            winner = null;
+            isGameover = false;
+
             if (gameBoard[0, 0] == player.Mark &&
                 gameBoard[0, 1] == player.Mark &&
                 gameBoard[0, 2] == player.Mark)
@@ -190,8 +193,26 @@ Press Q to quit or other to restart.";
                 return;
             }
 
-            isGameover = false;
-            winner = null;
+            // Check if the board is full for a draw
+            bool isDraw = true;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (gameBoard[i, j] == ' ')
+                    {
+                        isDraw = false;
+                        break;
+                    }
+                }
+                if (!isDraw) break;
+            }
+
+            if (isDraw)
+            {
+                isGameover = false;
+                winner = null;
+            }
         }
 
         public static void RestartGame(char[,] gameBoard)
