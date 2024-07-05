@@ -10,8 +10,7 @@ namespace TicTacToe
         public static Player Winner;
         public static readonly string IntroText = "Start TicTacToe game!\n";
         public static string EndingText =>
-            @$"Game Over! Winner is {Winner.Name}.
-Press Q to quit or other to restart.";
+            "Press 'Q' to quit or other key to restart.";
 
         static bool isGameover = false;
 
@@ -69,6 +68,10 @@ Press Q to quit or other to restart.";
                 }
             }
 
+            if (Winner != null)
+                Console.WriteLine($"Game Over! Winner is {Winner.Name}");
+            else
+                Console.WriteLine("It's a draw!");
             Console.WriteLine(EndingText);
             if (Console.ReadKey().KeyChar == 'q') return;
             else RestartGame(Board.GameBoard);
@@ -108,16 +111,16 @@ Press Q to quit or other to restart.";
                                     break;
                                 }
                                 else
-                                    Console.WriteLine("\nIt's already filled");
+                                    Console.WriteLine("\nThis position is already occupied. Please choose another position.");
                             }
                             else
-                                Console.WriteLine("\nEnter a valid number");
+                                Console.WriteLine("\nInvalid input. Please enter a number between 1 and 3.");
                         }
                         else
                             Console.WriteLine("\nYou could enter a number");
                     }
                     else
-                        Console.WriteLine("\nEnter a valid number");
+                        Console.WriteLine("\nInvalid input. Please enter a number between 1 and 3.");
                 }
                 else
                     Console.WriteLine("\nYou could enter a number");
