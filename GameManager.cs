@@ -24,10 +24,29 @@ Press Q to quit or other to restart.";
 
             for (int i = 0; i < Players.Length; i++)
             {
-                Console.Write($"Enter Player{i + 1}'s name: ");
-                string name = Console.ReadLine();
-                Console.Write($"Enter Player{i + 1}'s mark: ");
-                char mark = Console.ReadKey().KeyChar;
+                
+                // Input and validate player's name
+                string name = "";
+                while (string.IsNullOrWhiteSpace(name))
+                {
+                    Console.Write($"Enter Player{i + 1}'s name: ");
+                    name = Console.ReadLine();
+                    if (string.IsNullOrWhiteSpace(name))
+                        Console.WriteLine("It's not a valid value. Please enter a valid name.");
+                }
+
+                // Input and validate player's mark
+                char mark = ' ';
+                while (!char.IsLetterOrDigit(mark) || mark == ' ')
+                {
+                    Console.Write($"Enter Player{i + 1}'s mark: ");
+                    mark = Console.ReadKey().KeyChar;
+                    Console.WriteLine();
+                    if (!char.IsLetterOrDigit(mark) || mark == ' ')
+                        Console.WriteLine("It's not a valid mark. Please enter a valid mark.");
+                }
+
+
                 Players[i] = new Player(name, mark);
                 Console.WriteLine($"\nPlayers{i + 1}'s name: {Players[i].Name}, mark: {Players[i].Mark}");
             }
@@ -42,7 +61,6 @@ Press Q to quit or other to restart.";
 
                 for (int i = 0; i < Players.Length; i++)
                 {
-                    // isGameover가 true여도 i가 모두 돌기 전까지 게임이 실행되는 이슈
                     ChoosePosition(Players[i]);
                     Console.Clear();
                     DisplayGameLayout(Board.GameBoard);
@@ -112,81 +130,21 @@ Press Q to quit or other to restart.";
             winner = null;
             isGameover = false;
 
-            if (gameBoard[0, 0] == player.Mark &&
-                gameBoard[0, 1] == player.Mark &&
-                gameBoard[0, 2] == player.Mark)
+            // Check rows and columns
+            for (int i = 0; i < 3; i++)
             {
-                isGameover = true;
-                winner = player;
-                return;
+                if (CheckLine(gameBoard[i, 0], gameBoard[i, 1], gameBoard[i, 2], player.Mark) ||
+                    CheckLine(gameBoard[0, i], gameBoard[1, i], gameBoard[2, i], player.Mark))
+                {
+                    isGameover = true;
+                    winner = player;
+                    return;
+                }
             }
 
-            if (gameBoard[0, 0] == player.Mark &&
-                gameBoard[1, 1] == player.Mark &&
-                gameBoard[2, 2] == player.Mark)
-            {
-                isGameover = true;
-                winner = player;
-                return;
-            }
-
-            if (gameBoard[0, 0] == player.Mark &&
-                    gameBoard[1, 0] == player.Mark &&
-                    gameBoard[2, 0] == player.Mark)
-            {
-                isGameover = true;
-                winner = player;
-                return;
-            }
-
-            if (gameBoard[0, 1] == player.Mark &&
-                    gameBoard[1, 1] == player.Mark &&
-                    gameBoard[2, 1] == player.Mark)
-            {
-                isGameover = true;
-                winner = player;
-                return;
-            }
-
-            if (gameBoard[0, 2] == player.Mark &&
-                    gameBoard[1, 2] == player.Mark &&
-                    gameBoard[2, 2] == player.Mark)
-            {
-                isGameover = true;
-                winner = player;
-                return;
-            }
-
-            if (gameBoard[1, 0] == player.Mark &&
-                    gameBoard[1, 1] == player.Mark &&
-                    gameBoard[1, 2] == player.Mark)
-            {
-                isGameover = true;
-                winner = player;
-                return;
-            }
-
-            if (gameBoard[0, 2] == player.Mark &&
-                    gameBoard[1, 1] == player.Mark &&
-                    gameBoard[2, 0] == player.Mark)
-            {
-                isGameover = true;
-                winner = player;
-                return;
-            }
-
-            if (gameBoard[2, 0] == player.Mark &&
-                    gameBoard[2, 1] == player.Mark &&
-                    gameBoard[2, 2] == player.Mark)
-            {
-                isGameover = true;
-                winner = player;
-                return;
-            }
-
-            if (gameBoard[0, 0] == player.Mark &&
-                    gameBoard[0, 1] == player.Mark &&
-                    gameBoard[0, 2] == player.Mark)
+            // Check diagonals
+            if (CheckLine(gameBoard[0, 0], gameBoard[1, 1], gameBoard[2, 2], player.Mark) ||
+                CheckLine(gameBoard[0, 2], gameBoard[1, 1], gameBoard[2, 0], player.Mark))
             {
                 isGameover = true;
                 winner = player;
@@ -194,25 +152,32 @@ Press Q to quit or other to restart.";
             }
 
             // Check if the board is full for a draw
-            bool isDraw = true;
+            isGameover = IsBoardFull(gameBoard);
+
+            if (isGameover)
+            {
+                winner = null;
+            }
+        }
+
+        public static bool CheckLine(char a, char b, char c, char mark)
+        {
+            return (a == mark && b == mark && c == mark);
+        }
+
+        public static bool IsBoardFull(char[,] gameBoard)
+        {
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
                     if (gameBoard[i, j] == ' ')
                     {
-                        isDraw = false;
-                        break;
+                        return false;
                     }
                 }
-                if (!isDraw) break;
             }
-
-            if (isDraw)
-            {
-                isGameover = false;
-                winner = null;
-            }
+            return true;
         }
 
         public static void RestartGame(char[,] gameBoard)
